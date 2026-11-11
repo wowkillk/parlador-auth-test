@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#050505" />
+    <meta
+      name="description"
+      content="PARLADOR. Moscow underground techno. 19 декабря 2026, Fabula, Москва, 22:00–06:00 МСК."
+    />
+    <title>PARLADOR — Moscow Underground Techno</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="https://raw.githubusercontent.com/wowkillk/parlador-website/719cd8e91768823a9ef17225ff74e1de88124154/assets/archivo-black-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://raw.githubusercontent.com/wowkillk/parlador-website/719cd8e91768823a9ef17225ff74e1de88124154/assets/warehouse.png"
+      as="image"
+      fetchpriority="high"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth.css" />
+    <script src="site-config.js" defer></script>
+    <script src="ticket-pricing.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="auth-config.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+    <script src="auth.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#hero-content">Перейти к содержимому</a>
+    <main id="main">
+      <div class="hero-shell" id="home">
+        <header class="header" role="banner">
+          <a class="wordmark" href="#home" aria-label="PARLADOR — главная"
+            >PARLADOR<span class="dot" aria-hidden="true"></span
+          ></a>
+          <nav class="desktop-nav" aria-label="Основная навигация">
+            <a href="#home" class="active" aria-current="location">HOME</a>
+            <a href="#lineup">LINEUP</a>
+            <a href="#manifesto">MANIFESTO</a>
+            <a href="#tickets">TICKETS</a>
+            <a href="#community">COMMUNITY</a>
+          </nav>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-controls="menu-panel"
+            aria-expanded="false"
+            aria-label="Открыть меню"
+          >
+            <span></span><span></span><span></span>
+          </button>
+          <nav
+            class="menu-panel"
+            id="menu-panel"
+            aria-label="Меню разделов"
+            inert
+            hidden
+          >
+            <a href="#home"><span>00 /</span> HOME</a
+            ><a href="#lineup"><span>01 /</span> LINEUP</a
+            ><a href="#manifesto"><span>02 /</span> MANIFESTO</a
+            ><a href="#event"><span>03 /</span> EVENT</a
+            ><a href="#tickets"><span>04 /</span> TICKETS</a>
+            <a href="#community"><span>05 /</span> COMMUNITY</a>
+            <p>19.12.2026<br />FABULA — MOSCOW</p>
+          </nav>
+        </header>
+        <section class="hero" id="hero-content" aria-labelledby="hero-title">
+          <p class="eyebrow hero-eyebrow">
+            MOSCOW / UNDERGROUND TECHNO <span class="slash">/</span>
+            <span class="red">19.12.2026</span>
+          </p>
+          <h1 id="hero-title" aria-label="PARLADOR">
+            <span aria-hidden="true">PARLA</span
+            ><span aria-hidden="true">DOR<span class="dot"></span></span>
+          </h1>
+          <p class="hero-tagline">THE UNDERGROUND IS CALLING.</p>
+          <div class="next-session">
+            <p class="eyebrow">NEXT SESSION</p>
+            <time datetime="2026-12-19T22:00:00+03:00">19.12.2026</time>
+            <p class="eyebrow">FABULA — MOSCOW</p>
+          </div>
+          <a class="button enter-button" href="#event"
+            >ENTER
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 19 19 5M5 5h14v14" /></svg
+          ></a>
+        </section>
+      </div>
+
+      <div class="ticker" aria-label="RAW TECHNO /// NO COMPROMISE">
+        <div class="ticker-track" aria-hidden="true">
+          <span
+            >RAW TECHNO /// NO COMPROMISE /// PARLADOR /// MOSCOW /// 19
+            DECEMBER ///&nbsp;</span
+          ><span
+            >RAW TECHNO /// NO COMPROMISE /// PARLADOR /// MOSCOW /// 19
+            DECEMBER ///&nbsp;</span
+          >
+        </div>
+      </div>
+
+      <div class="content-sections">
+        <section
+          class="lineup section"
+          id="lineup"
+          aria-labelledby="lineup-title"
+        >
+          <div class="lineup-heading">
+            <div>
+              <p class="eyebrow section-label">
+                01 <span class="slash">/</span> THE ARTISTS
+              </p>
+              <h2 id="lineup-title">
+                THE<br />LINEUP<span class="dot" aria-hidden="true"></span>
+              </h2>
+            </div>
+            <div class="lineup-intro">
+              <p>Семь артистов —<br />один танцпол.</p>
+              <div class="lineup-controls" aria-label="Прокрутка артистов">
+                <button
+                  id="artists-prev"
+                  type="button"
+                  aria-label="Предыдущие артисты"
+                  aria-controls="artist-list"
+                  disabled
+                >
+                  ←</button
+                ><span class="eyebrow" id="artists-position" aria-live="polite"
+                  >01 — 04 / 07</span
+                ><button
+                  id="artists-next"
+                  type="button"
+                  aria-label="Следующие артисты"
+                  aria-controls="artist-list"
+                >
+                  →
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="artist-list"
+            id="artist-list"
+            role="region"
+            aria-label="Лайнап: семь артистов, прокрутка по горизонтали"
+            tabindex="0"
+          >
+            <article
+              class="artist-card artist-one"
+              data-artist-id="dj-kalashnikov"
+              aria-label="Артист 1 из 7: KALASHNIKOV"
+            >
+              <h3>KALASHNIKOV</h3>
+              <p class="artist-caption">PARLADOR</p>
+            </article>
+            <article
+              class="artist-card artist-two"
+              data-artist-id="danjamin"
+              aria-label="Артист 2 из 7: DANJAMIN"
+            >
+              <h3>DANJAMIN</h3>
+              <p class="artist-caption">PARLADOR</p>
+            </article>
+            <article
+              class="artist-card artist-three"
+              data-artist-id="meg"
+              aria-label="Артист 3 из 7: M.E.G"
+            >
+              <h3>M.E.G</h3>
+              <p class="artist-caption">PARLADOR</p>
+            </article>
+            <article
+              class="artist-card artist-four"
+              data-artist-id="frdm"
+              aria-label="Артист 4 из 7: FRDM"
+            >
+              <h3>FRDM</h3>
+              <p class="artist-caption">PARLADOR</p>
+            </article>
+            <article
+              class="artist-card artist-five"
+              data-artist-id="acid-boss"
+              aria-label="Артист 5 из 7: ACID BOSS"
+            >
+              <h3>ACID BOSS</h3>
+              <p class="artist-caption">PARLADOR</p>
+            </article>
+            <article
+              class="artist-card artist-six"
+              data-artist-id="deviantny-dialekt"
+              aria-label="Артист 6 из 7: Девиантный Диалект"
+            >
+              <h3 class="cyrillic">Девиантный<br />Диалект</h3>
+              <p class="artist-caption">PARLADOR</p>
+            </article>
+            <article
+              class="artist-card artist-seven"
+              data-artist-id="dj-alwen"
+              aria-label="Артист 7 из 7: ALWEN"
+            >
+              <h3>ALWEN</h3>
+              <p class="artist-caption">PARLADOR</p>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="manifesto section"
+          id="manifesto"
+          aria-labelledby="manifesto-title"
+        >
+          <div>
+            <p class="eyebrow section-label">
+              02 <span class="slash">/</span> MANIFESTO
+            </p>
+            <h2 id="manifesto-title">
+              NO<br />RULES<span class="dot" aria-hidden="true"></span>
+            </h2>
+          </div>
+          <div class="manifesto-copy">
+            <p>
+              <strong>PARLADOR</strong> — не просто вечеринка. Это звук, энергия
+              и люди, которые выбирают настоящую атмосферу андеграунда.
+            </p>
+            <p class="eyebrow manifesto-signature">
+              <span class="slash">/</span> RAW SOUND / INDUSTRIAL SPACE / ONE
+              COMMUNITY
+            </p>
+          </div>
+        </section>
+
+        <section class="event section" id="event" aria-labelledby="event-title">
+          <div class="event-date">
+            <p class="eyebrow section-label">
+              03 <span class="slash">/</span> NEXT EVENT
+            </p>
+            <h2 id="event-title">
+              <time datetime="2026-12-19"
+                >19 DEC<br />2026<span class="dot" aria-hidden="true"></span
+              ></time>
+            </h2>
+          </div>
+          <div class="countdown-area">
+            <p class="eyebrow" id="countdown-label">COUNTDOWN / MOSCOW TIME</p>
+            <div
+              class="countdown"
+              role="timer"
+              aria-live="off"
+              aria-label="До начала мероприятия"
+            >
+              <div><span id="days">—</span><small>DAYS</small></div>
+              <div><span id="hours">—</span><small>HOURS</small></div>
+              <div><span id="minutes">—</span><small>MINUTES</small></div>
+              <div><span id="seconds">—</span><small>SECONDS</small></div>
+            </div>
+            <p class="time-note">Начало: 19 декабря, 22:00 МСК (UTC+3)</p>
+            <noscript
+              ><p class="time-note">
+                Включите JavaScript для обратного отсчёта.
+              </p></noscript
+            >
+          </div>
+          <div class="tickets event-details">
+            <h2 class="sr-only">Информация о событии</h2>
+            <dl>
+              <div>
+                <dt>VENUE</dt>
+                <dd>FABULA, MOSCOW</dd>
+              </div>
+              <div>
+                <dt>TIME</dt>
+                <dd>22:00 — 06:00</dd>
+              </div>
+              <div>
+                <dt>TICKETS</dt>
+                <dd id="event-ticket-status">COMING SOON</dd>
+              </div>
+            </dl>
+            <a class="button tickets-button" href="#tickets">TICKETS <span aria-hidden="true">↗</span></a>
+            <p class="ticket-note">До 06:00 20 декабря / МСК</p>
+          </div>
+        </section>
+
+        <section class="ticket-section section" id="tickets" aria-labelledby="tickets-title">
+          <div class="phase-heading">
+            <p class="eyebrow section-label">04 <span class="slash">/</span> ACCESS THE NIGHT</p>
+            <h2 id="tickets-title">TICKETS<span class="dot" aria-hidden="true"></span></h2>
+          </div>
+          <div class="ticket-panel pricing-card">
+            <p class="eyebrow preview-notice" id="ticket-preview" hidden>LOCAL PREVIEW / ТЕСТОВОЕ ВРЕМЯ</p>
+            <div class="pricing-summary" aria-live="polite" aria-atomic="true">
+              <p class="eyebrow phase-status" id="ticket-status">COMING SOON</p>
+              <p class="ticket-price" id="ticket-price" hidden></p>
+              <p class="ticket-period" id="ticket-period">Расписание ценовых этапов.</p>
+              <p class="ticket-next" id="ticket-next"></p>
+            </div>
+            <p class="ticket-slogan"><span>BUY EARLY.</span> <span>PAY LESS.</span></p>
+            <ol class="price-stages" id="price-stages" aria-label="Пять ценовых этапов"></ol>
+            <p class="phase-copy" id="ticket-message">Цены анонсированы. Билетная платформа пока не подключена.</p>
+            <button class="button phase-button" id="ticket-unavailable" type="button" disabled aria-describedby="ticket-message">BUY TICKET <span aria-hidden="true">↗</span></button>
+            <a class="button phase-button" id="ticket-buy" hidden>BUY TICKET <span aria-hidden="true">↗</span></a>
+            <p class="pricing-disclaimer">Отображение зависит от часов вашего устройства. Окончательная стоимость и доступность билетов определяются билетной платформой.</p>
+            <noscript><p class="pricing-disclaimer">Включите JavaScript для актуального этапа и расписания цен. Цена покупки определяется билетной платформой.</p></noscript>
+          </div>
+        </section>
+        <section class="community section" id="community" aria-labelledby="community-title">
+          <div class="phase-heading">
+            <p class="eyebrow section-label">05 <span class="slash">/</span> STAY CONNECTED</p>
+            <h2 id="community-title">PARLADOR<br />COMMUNITY<span class="dot" aria-hidden="true"></span></h2>
+          </div>
+          <div class="community-copy">
+            <p class="phase-copy">Следующая ночь начинается с людей. Здесь будут анонсы PARLADOR, будущие мероприятия и новости развития нашего сообщества.</p>
+            <p class="phase-copy community-note" id="telegram-message">Ссылка на Telegram появится здесь после запуска канала.</p>
+            <button class="button phase-button" id="telegram-unavailable" type="button" disabled aria-describedby="telegram-message">JOIN TELEGRAM <span aria-hidden="true">↗</span></button>
+            <a class="button phase-button" id="telegram-join" hidden>JOIN TELEGRAM <span aria-hidden="true">↗</span></a>
+            <p class="eyebrow phase-footnote">ONE COMMUNITY / UNDERGROUND ONLY</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <a class="wordmark" href="#home" aria-label="PARLADOR — наверх"
+        >PARLADOR<span class="dot" aria-hidden="true"></span
+      ></a>
+      <p class="eyebrow">UNDERGROUND ONLY</p>
+      <p class="eyebrow copyright">© 2026</p>
+    </footer>
+
+    <noscript
+      ><style>
+        .menu-toggle,
+        .lineup-controls {
+          display: none;
+        }
+        .desktop-nav {
+          display: flex !important;
+          flex-wrap: wrap;
+        }
+        .header {
+          height: auto;
+          min-height: 60px;
+          flex-wrap: wrap;
+          padding-top: 15px;
+          padding-bottom: 15px;
+        }
+        .artist-list {
+          scrollbar-width: thin;
+        }
+      </style></noscript
+    >
+  </body>
+</html>
+
+
+
